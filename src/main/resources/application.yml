@@ -1,0 +1,24 @@
+# ---------------------------------------------------------------
+# Google OAuth2 credentials
+# ---------------------------------------------------------------
+# 1. Go to https://console.cloud.google.com
+# 2. Create a project (or pick an existing one)
+# 3. Navigate to: APIs & Services → Credentials → Create → OAuth 2.0 Client ID
+# 4. Application type: Web application
+# 5. Add this exact authorized redirect URI:
+#        http://localhost:8080/login/oauth2/code/google
+# 6. Copy the generated Client ID and Client Secret into the two fields below.
+# ---------------------------------------------------------------
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: "${CLIENT_ID}"
+            client-secret: "${CLIENT_SECRET}"
+            scope:
+              - openid
+              - profile
+              - email
